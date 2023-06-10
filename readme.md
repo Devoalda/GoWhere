@@ -55,5 +55,13 @@ options:
 
 ```
 
+# Docker Image
+A docker image is provided in the repository.
+To run the docker image, run the following command:
+```bash
+docker image build -t go_where .
+docker run -d -p 5000:5000 --name go_where go_where:latest
+```
+
 # License
 [MIT](https://choosealicense.com/licenses/mit/)
