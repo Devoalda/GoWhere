@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  web:
+    build: ./services/web
+    command: python app.py run -h 0.0.0.0
+    volumes:
+      - ./services/web/:/usr/src/app/
+    ports:
+      - "5055:5000"
