@@ -4,6 +4,9 @@ This is a simple python flask application to help you decide where to go leisure
 The dataset used is from [Wikipedia](https://en.wikipedia.org/wiki/List_of_shopping_malls_in_Singapore).
 A sample dataset is provided in `SG_Shopping_Malls.py` module.
 
+A sample version of the application is [here](https://subtotal5458.pythonanywhere.com).
+View [Usage](#usage) for more information.
+
 ## Installation
 1. Clone the repository
 2. Install the requirements
@@ -22,7 +25,9 @@ python app.py
 
 ## Flask Web Application
 Open the browser and go to http://localhost:5000.
-Main page will provide a random region and a few shopping malls in that region for you to pick.
+Main page will provide a random region and a few shopping malls in that region for you to pick. 
+
+Every refresh of the homepage will provide a new random region and shopping malls.
 
 To choose a specific region, go to http://localhost:5000/region where region can be:
 - Central
@@ -34,6 +39,12 @@ To choose a specific region, go to http://localhost:5000/region where region can
 - South
 
 Example: http://localhost:5000/Central
+
+To choose the amount of shopping malls to be displayed, go to http://localhost:5000/region/number where number is the amount of shopping malls to be displayed.
+
+Example: http://localhost:5000/Central/3
+
+> Note that the number of shopping malls displayed is limited to the number of shopping malls in the dataset
 
 ## SG_Shopping_Malls Module
 This is the module that provides the random region and shopping malls. 

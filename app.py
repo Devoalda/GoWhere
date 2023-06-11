@@ -1,4 +1,4 @@
-import random
+import random, os
 
 from flask import Flask, render_template
 
@@ -6,7 +6,12 @@ import SG_Shopping_Malls.SG_Shopping_Malls as sm
 
 app = Flask(__name__)
 sm = sm.Shopping_Mall()
-sm.import_file('SG_Shopping_Malls/dataset.json')
+try:
+    sm.import_file('SG_Shopping_Malls/dataset.json')
+except FileNotFoundError:
+    # Try full path with os module
+    sm.import_file(os.path.join(os.path.dirname(__file__), 'SG_Shopping_Malls/dataset.json'))
+
 regions = sm.headers
 
 
@@ -65,8 +70,4 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.run(
-        host='0.0.0.0',
-        port=5000,
-        debug=True
-    )
+    app.run(host='0.0.0.0', port=5000, debug=True)

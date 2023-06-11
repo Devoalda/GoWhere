@@ -1,8 +1,6 @@
 #! /usr/bin/env python3
 from pprint import pprint
 
-from bs4 import BeautifulSoup
-import requests as requests
 import argparse
 
 
@@ -22,6 +20,9 @@ class Shopping_Mall:
         [Key: Region, Value: List of Malls]
         :return: None
         """
+        # To ensure script can be run without BeautifulSoup
+        from bs4 import BeautifulSoup
+        import requests as requests
         page = requests.get(self.link)
         soup = BeautifulSoup(page.content, 'html.parser')
 
